@@ -1,5 +1,6 @@
 package br.com.misterjackpot.model;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -21,6 +22,7 @@ public class Ordem {
     @Column(name = "user_id")
     private Long userId;
 
+    @JsonbTransient
     public Long getId() {
         return id;
     }
