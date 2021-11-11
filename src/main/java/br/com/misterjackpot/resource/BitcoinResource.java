@@ -4,6 +4,7 @@ import br.com.misterjackpot.model.Bitcoin;
 import br.com.misterjackpot.service.BitcoinService;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
+import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -19,6 +20,7 @@ public class BitcoinResource {
     BitcoinService bitcoinService;
 
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     public List<Bitcoin> listar(){
         return bitcoinService.listar();

@@ -2,6 +2,7 @@ package br.com.misterjackpot.resource;
 
 import br.com.misterjackpot.model.Usuario;
 import br.com.misterjackpot.repository.UsuarioRepository;
+import br.com.misterjackpot.service.UsuarioService;
 
 import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
@@ -15,13 +16,13 @@ import javax.ws.rs.core.MediaType;
 public class UsuarioResource {
 
     @Inject
-    UsuarioRepository usuarioRepository;
+    UsuarioService usuarioService;
 
     @POST
     @PermitAll
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public void inserir(Usuario usuario){
-        usuarioRepository.adicionar(usuario);
+        usuarioService.inserir(usuario);
     }
 }
