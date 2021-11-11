@@ -3,6 +3,7 @@ package br.com.misterjackpot.resource;
 import br.com.misterjackpot.model.Usuario;
 import br.com.misterjackpot.repository.UsuarioRepository;
 
+import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
@@ -17,9 +18,10 @@ public class UsuarioResource {
     UsuarioRepository usuarioRepository;
 
     @POST
+    @PermitAll
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public void inserir(Usuario usuario){
-        usuarioRepository.persist(usuario);
+        usuarioRepository.adicionar(usuario);
     }
 }
